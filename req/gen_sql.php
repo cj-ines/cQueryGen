@@ -3,12 +3,12 @@
   $IDs=$_GET['IDs'];
   $DB=$_GET['DB'];
   $DISPO=$_GET['DISPO'];
-  $TABLE="Schneider_2013Q4";
+  $TABLE="Schneider_2014Q1";
   
   switch($DB) {
    case 1: $DB="zoopmobility-schneider-ccc"; $TABLE="SURVEYS_CATI";break;
    case 2: $DB="cati_schneider_power_live";break;
-   case 3: $DB="cati_schneider_service_live";break;
+   case 3: $DB="cati_schneider_service_live"; $TABLE="SERVICE_SURVEY";break;
    case 4: $DB="zoopmobility-schneider-cati";break;
    case 5: $DB="cati_schneider_other_live";break;
 

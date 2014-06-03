@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/bootstrap.css"  type="text/css"/>
+<!----<link rel="stylesheet" href="css/bootstrap.css"  type="text/css"/>-->
 <title>Bulk Query Generator</title>
 <script type="text/javascript">
 function generate_sql() {
@@ -11,6 +11,7 @@ function generate_sql() {
 	var dispo=document.getElementById('DISPO').value
 	var res=new XMLHttpRequest()
 	res.onreadystatechange=function() {
+	    document.getElementById('SQL_GEN').innerHTML='wait...';
 		if (res.readyState==4 && res.status==200) {
     	  document.getElementById('SQL_GEN').innerHTML=res.responseText;
 		}
@@ -23,9 +24,9 @@ function generate_sql() {
 
 </head>
 <body>
-  <div class="container">
 
-  IDs:<input type="text" name="IDs" id="IDs"  value="0"/>
+
+  IDs:<input name="IDs" id="IDs"  value="0"/>
   Dispo:
   <select name="DISPO" id="DISPO">
     <option value="-99">(-99) Completed Not Qualified</option>
@@ -40,27 +41,9 @@ function generate_sql() {
        <option value="4">Buildings (zoopmobility-schneider-cati)</option>
        <option value="5">Other(cati_schneider_power_other)</option>
   </select>
-  <button type='button' class='btn btn-defualt' onclick="generate_sql()">Gen SQL</button>
+  <button type='button' onclick="generate_sql()">Gen SQL</button>
   <br />
   <textarea cols="100" name="SQL_GEN" style="height:400px;  background-color:#F5F5F5" id="SQL_GEN"></textarea>
-  </div>
-
-<script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.6/zenbox.js"></script>
-<style type="text/css" media="screen, projection">
-  @import url(//assets.zendesk.com/external/zenbox/v2.6/zenbox.css);
-</style>
-<script type="text/javascript">
-  if (typeof(Zenbox) !== "undefined") {
-    Zenbox.init({
-      dropboxID:   "20090649",
-      url:         "https://zooping.zendesk.com",
-      tabTooltip:  "Support",
-      tabImageURL: "https://assets.zendesk.com/external/zenbox/images/tab_support.png",
-      tabColor:    "black",
-      tabPosition: "Left"
-    });
-  }
-</script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 </body>
